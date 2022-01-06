@@ -5,7 +5,8 @@ function FeedbackStats() {
   const {feedback} = useContext(FeedbackContext)
   // calculate ratings average
   let average = feedback.reduce((accumulator, current) => {
-    return accumulator + current.rating
+    // convert rating from a string to a number with unary operator (+)
+    return accumulator + +current.rating
   }, 0) / feedback.length
 
   average = average.toFixed(1).replace(/[..]0$/, '')
